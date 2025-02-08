@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 * {
     box-sizing: border-box; /* Позволяет избежать проблем с шириной */
 }
@@ -7,7 +10,8 @@ body, html {
     padding: 0;
     height: 100%; /* Обеспечение полной высоты для body и html */
     overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
-    overflow: hidden; /* Прекращает прокрутку */
+    /*overflow: hidden; !* Прекращает прокрутку *!*/
+    background: black;
 }
 
 .socialsBlock {
@@ -134,11 +138,14 @@ footer {
 }
 
 .backgroundIndex {
-
     background-size: cover; /* Масштабируем фоновое изображение */
-    background-attachment: fixed; /* Фиксируем фон при прокрутке */
-    height: 100vh; /* Обеспечиваем, чтобы блок занимал всю высоту окна */
-    width: 100vw; /* Обеспечиваем, чтобы блок занимал всю ширину окна */
+    background-attachment: fixed;
+    width: 100%; /* Обеспечиваем, чтобы блок занимал всю ширину окна */
+    height: 100%; /* Обеспечиваем, чтобы блок занимал всю высоту окна */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .headerMenuBlock {
@@ -155,3 +162,71 @@ footer {
     align-items: center; /* Центрируем по вертикали */
 }
 
+.rulesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    background: rgba(0, 0, 0, 0.71);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+.stub {
+    width: 100%;
+    height: 80px;
+    padding: 80px;
+    background: transparent;
+}
+.rulesContainer > h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 350%;
+    margin-left: 50px;
+}
+.rules {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.rules .rules_type {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.type_of_rules {
+    margin-left: 10px;
+    font-size: 200%;
+}
+.rule_naming {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+    margin-left: 10px;
+    gap: 80px;
+    /*margin: 10px;*/
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border: none;
+    font-size: 150%;
+}
+.rules .rule {
+    margin: 0 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    align-items: center;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.rule .rule_number {
+    width: 10px;
+}
+.rule .violation, .rule .sanction {
+    padding: 10px 20px;
+    margin: 10px 20px;
+    width: 100%;
+}
