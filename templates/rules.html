@@ -475,13 +475,13 @@
         <!--    rules-->
     </div>
 
-<!--    <script>-->
-<!--window.addEventListener('wheel', function(event) {-->
-<!--    if (event.ctrlKey) {-->
-<!--        event.preventDefault();-->
-<!--    }-->
-<!--}, { passive: false });-->
-<!--	</script>-->
+    <script>
+window.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+	</script>
 
 {% if error_message %}
     <script>
@@ -859,15 +859,14 @@
 
     </div>
 
-<!--window.addEventListener('wheel', function(event) {-->
-<!--    if (event.ctrlKey) {-->
-<!--        event.preventDefault();-->
-<!--    }-->
-<!--}, { passive: false });-->
 
     <script>
-
-	</script>
+        window.addEventListener('wheel', function(event) {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+    </script>
 
 {% if error_message %}
     <script>
