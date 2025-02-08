@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>R2 Online Minus12 MMORPG</title>
+    <meta name="title" content="R2 Online Minus12 MMORPG">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="R2 Online - сервер Minus12">
+    <meta property="og:url" content="https://minus12.ru">
+    <meta property="og:image:width" content="250">
+    <meta property="og:image:height" content="250">
+    <meta http-equiv="content-language" content="ru">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" class="js-site-favicon" type="image/png" href="{{ url_for('static', filename='image/favicon.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+<style>
+* {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 400px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+        height: 100%;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    body {
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center; /* Центрирование по горизонтали */
+      align-items: center;     /* Центрирование по вертикали */
+      min-height: 100vh;       /* Занимает всю высоту окна */
+      background-color: #f0f0f0; /* Добавил фон для видимости */
+    }
+
+    .container {
+      background-color: white;
+      color: black;
+      padding: 30px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column; /* Изменил на column для лучшего размещения */
+      align-items: center;      /* Центрирование содержимого внутри контейнера */
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Добавил тень */
+      width: 300px;
+        height: 100%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%; /* Форма займет всю ширину контейнера */
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 100%; /* Input займет всю ширину формы */
+      box-sizing: border-box; /* Чтобы padding не влиял на общую ширину */
+    }
+
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%; /* Кнопка займет всю ширину формы */
+    }
+    .error {
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+{% if 'logged_in' in session %}
+        <div class="container">
+            <div>
+                <form action="/cabinet" method="post">
+                    <h1>Добро пожаловать в кабинет!</h1>
+                    <p>Вы вошли под логином: {{ login }}</p>
+                    <p>Ваш внутриигровой баланс: {{ shop_balance }}</p>
+                </form>
+            </div>
+        </div>
+
+
+    <div class="backgroundIndex" style="background-image: url(/static/image/main.jpg);">
+        <div class="preloadHover"></div>
+        <div class="header">
+            <div class="headerMenu">
+                <div class="headerMenuBlock">
+                    <div class="headerMenuBlockLeft">
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/" class="headerMenuBlockLeftElementText">ГЛАВНАЯ</a>
+                        </div>
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/news" class="headerMenuBlockLeftElementText">НОВОСТИ</a>
+                        </div>
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/rules" class="headerMenuBlockLeftElementText">ПРАВИЛА</a>
+                        </div>
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/support" class="headerMenuBlockLeftElementText">ПОДДЕРЖКА</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="headerMenuBottomLine customHr"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+window.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+	</script>
+
+{% if error_message %}
+    <script>
+        alert('{{ error_message }}');
+    </script>
+{% endif %}
+
+
+
+<footer class="footer">
+    <div class="socialsBlock">
+        <a href="https://discord.com/">
+            <div class="socialElement linkDs"></div>
+        </a>
+        <a href="https://vk.com/">
+            <div class="socialElement linkVk"></div>
+        </a>
+        <a href="https://t.me/">
+            <div class="socialElement linkTg"></div>
+        </a>
+    </div>
+    <a class="privacy" href="/legal">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
+</footer>
+    {% else %}
+
+    <div class="backgroundIndex" style="background-image: url(/static/image/main.jpg);">
+        <div class="preloadHover"></div>
+        <div class="header">
+            <div class="headerMenu">
+                <div class="headerMenuBlock">
+                    <div class="headerMenuBlockLeft">
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/" class="headerMenuBlockLeftElementText">ГЛАВНАЯ</a>
+                        </div>
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/news" class="headerMenuBlockLeftElementText">НОВОСТИ</a>
+                        </div>
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/rules" class="headerMenuBlockLeftElementText">ПРАВИЛА</a>
+                        </div>
+                        <div class="headerMenuBlockLeftElement">
+                            <a href="/support" class="headerMenuBlockLeftElementText">ПОДДЕРЖКА</a>
+                        </div>
+                    </div>
+
+                    <div class="headerMenuBlockRight">
+    <a href="/login" class="headerMenuBlockLeftElementText">
+        <div class="widthHide">ВОЙТИ</div>
+    </a>
+    <a href="/registration" class="headerMenuBlockLeftElementText">
+        <div>РЕГИСТРАЦИЯ</div>
+    </a>
+</div>
+                </div>
+                <div class="headerMenuBottomLine customHr"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+window.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+	</script>
+
+{% if error_message %}
+    <script>
+        alert('{{ error_message }}');
+    </script>
+{% endif %}
+
+
+
+<footer class="footer">
+    <div class="socialsBlock">
+        <a href="https://discord.com/">
+            <div class="socialElement linkDs"></div>
+        </a>
+        <a href="https://vk.com/">
+            <div class="socialElement linkVk"></div>
+        </a>
+        <a href="https://t.me/">
+            <div class="socialElement linkTg"></div>
+        </a>
+    </div>
+    <a class="privacy" href="/legal">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
+</footer>
+    {% endif %}
+
+</body>
+</html>

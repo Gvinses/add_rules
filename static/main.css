@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box; /* Позволяет избежать проблем с шириной */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Обеспечение полной высоты для body и html */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    overflow: hidden; /* Прекращает прокрутку */
+}
+
+.socialsBlock {
+    margin: 30px 0;
+    display: flex;
+    z-index: 1
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer a {
+    color: black;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .socialsBlock {
+    display: inline-block;
+}
+
+.footer .socialElement {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.linkDs {
+    background-image: url('/static/image/icons/ds.png');
+}
+
+.linkVk {
+    background-image: url('/static/image/icons/vk.png');
+}
+
+.linkTg {
+    background-image: url('/static/image/icons/tg.png');
+}
+
+
+.headerMenuBlockLeft {
+    display: flex; /* Используйте flexbox для расположения элементов */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    flex-direction: row; /* Элементы расположены в строку */
+}
+
+.headerMenuBlockLeftElement {
+    margin: 0 10px; /* Отступ между элементами */
+}
+
+.headerMenuBlockLeftElementText {
+    height: 73px; /* Высота элемента */
+    display: flex;
+    align-items: center; /* Центрирование текста по вертикали */
+    justify-content: center; /* Центрирование текста по горизонтали */
+    width: 153px; /* Ширина элемента */
+    color: #fff; /* Цвет текста */
+    font-size: 12pt; /* Размер шрифта */
+    transition: .3s; /* Плавный переход для hover */
+}
+
+.headerMenuBlockLeftElementText.goToMain {
+    background: initial;
+    box-shadow: none;
+}
+
+.headerMenuBlockLeftElementText:not(.currentPage, .headerMenuBlockLeftElementTextDropable, .headerMenuBlockLeftElementTextLogo):hover,
+.headerMenuBlockRightElement:not(.currentPage, .download):hover {
+    color: #000000; /* Цвет текста при наведении */
+    cursor: pointer; /* Указатель при наведении */
+    background: #ffffff; /* Фон при наведении */
+    box-shadow: 0 0 30px 7px #000; /* Тень при наведении */
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 50px auto 0;
+    background: linear-gradient(rgba(26, 18, 15, 0) 5%, rgba(21, 15, 11, 0) 50%);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.headerMenuBlockLeftElementText:hover {
+    color: #000000; /* Цвет текста при наведении */
+     text-decoration: none;
+    font-size: 16px; /* Фиксированный размер шрифта */
+}
+
+.headerMenuBlockRightElement {
+    margin-left: 20px; /* Отступ между элементами */
+     text-decoration: none;
+    font-size: 16px; /* Фиксированный размер шрифта */
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media screen and (max-width: 768px) {
+    .headerMenuBlockLeftElementText {
+        font-size: 10pt; /* Уменьшение размера шрифта на мобильных */
+    }
+
+    .headerMenuBlockLeft {
+        flex-direction: column; /* Вертикальное расположение для мобильных устройств */
+        align-items: center; /* Центрирование элементов */
+    }
+}
+
+.backgroundIndex {
+
+    background-size: cover; /* Масштабируем фоновое изображение */
+    background-attachment: fixed; /* Фиксируем фон при прокрутке */
+    height: 100vh; /* Обеспечиваем, чтобы блок занимал всю высоту окна */
+    width: 100vw; /* Обеспечиваем, чтобы блок занимал всю ширину окна */
+}
+
+.headerMenuBlock {
+    display: flex; /* Настраиваем флекс-контейнер для боковых меню */
+    justify-content: space-between; /* Пространство между левым и правым блоками */
+    align-items: center; /* Центрируем элементы по вертикали */
+    width: 100%; /* Устанавливаем ширину в 100% */
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
+    margin: 0 auto; /* Центрируем блок на странице */
+}
+
+.headerMenuBlockLeft, .headerMenuBlockRight {
+    display: flex; /* Для логического выравнивания элементов внутри */
+    align-items: center; /* Центрируем по вертикали */
+}
+
